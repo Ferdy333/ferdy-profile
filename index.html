@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bio Profile Modern</title>
+    
+    <!-- Font Awesome (Ikon Sosial Media) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- AOS (Animate on Scroll) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <style>
+        /* Import Font */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        /* Global Style */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        
+        body {
+            background: linear-gradient(135deg, #1f1c2c, #928dab);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            color: white;
+            position: relative;
+        }
+
+        /* Wrapper untuk gambar dengan background setengah */
+        .profile-wrapper {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        /* Background setengah lingkaran */
+        .profile-wrapper::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 130px;
+            height: 65px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 100px 100px 0 0;
+            z-index: -1;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            object-fit: cover;
+        }
+
+        h1 { font-size: 22px; margin-top: 5px; }
+        p { font-size: 14px; opacity: 0.8; }
+
+        /* Tanggal */
+        .date {
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 10px;
+            color: #ffcc00;
+        }
+
+        /* Social Icons */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-icons a {
+            font-size: 20px;
+            transition: transform 0.3s;
+        }
+
+        /* Warna ikon sesuai platform */
+        .fa-facebook { color: #1877F2; }
+        .fa-twitter { color: #1DA1F2; }
+        .fa-instagram { color: #E4405F; }
+        .fa-linkedin { color: #0077B5; }
+        .fa-github { color: #333; }
+        .fa-discord { color: #5865F2; }
+
+        .social-icons a:hover {
+            transform: scale(1.2);
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .container { padding: 15px; }
+            h1 { font-size: 20px; }
+            p { font-size: 13px; }
+            .profile-img { width: 100px; height: 100px; }
+            .profile-wrapper::before {
+                width: 110px;
+                height: 55px;
+            }
+            .social-icons a { font-size: 18px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" data-aos="fade-up">
+        <div class="profile-wrapper">
+            <img src="https://c.top4top.io/p_3356yj79k0.jpeg" alt="Profile Picture" class="profile-img">
+        </div>
+        <h1>FC PROJECT</h1>
+        <p>Web Developer | UI/UX Designer</p>
+        <p>Creating modern & interactive web experiences.</p>
+
+        <!-- Tanggal, Bulan, Tahun -->
+        <p class="date" id="currentDate"></p>
+        
+        <div class="social-icons">
+            <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" title="Discord"><i class="fab fa-discord"></i></a>
+        </div>
+    </div>
+
+    <!-- Library AOS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init(); // Inisialisasi AOS
+
+        // Menampilkan Tanggal, Bulan, dan Tahun
+        const dateElement = document.getElementById("currentDate");
+        const today = new Date();
+        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        dateElement.innerText = today.toLocaleDateString('id-ID', options);
+    </script>
+
+</body>
+</html>
